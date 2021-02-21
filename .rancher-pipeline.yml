@@ -1,9 +1,10 @@
 stages:
 - name: stage1
   steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: nifi
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:cetic-charts-nifi
+      version: 0.6.2
+      name: NewApp
+      targetNamespace: development
 timeout: 60
 notification: {}
